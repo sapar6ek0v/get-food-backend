@@ -2,7 +2,7 @@ import { Config } from './config.interface';
 
 const config: Config = {
   nest: {
-    port: 8080,
+    port: parseInt(process.env.PORT),
   },
   cors: {
     enabled: true,
@@ -16,8 +16,9 @@ const config: Config = {
     tags: 'GetFood',
   },
   security: {
-    expiresIn: '2m',
-    refreshIn: '7d',
+    secret: process.env.SECRET,
+    expiresIn: process.env.EXPIRES_IN,
+    refreshIn: process.env.REFRESH_IN,
     bcryptSaltOrRound: 10,
   },
 };
